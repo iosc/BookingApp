@@ -1,5 +1,5 @@
 <?
-define('COMPANY_NAME', 'Online Booking App');
+define('COMPANY_NAME', 'Online Booking App - Boyd');
 define('SITEDOMAIN', 'http://localhost/BookingApp');
 define('SITEURL', 'http://localhost/BookingApp');
 
