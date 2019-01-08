@@ -1,11 +1,11 @@
 <?
-define('COMPANY_NAME', 'Online Reservation');
-define('SITEDOMAIN', 'http://localhost/www.vdo.my/ihom/');
-define('SITEURL', 'http://localhost/www.vdo.my/ihom/');
+define('COMPANY_NAME', 'Online Booking App');
+define('SITEDOMAIN', 'http://localhost/BookingApp');
+define('SITEURL', 'http://localhost/BookingApp');
 
 define('HOST', 'localhost');
 define('USER', 'root');
 define('PASSWORD', '');
-define('DATABASE', 'hotel_booking_form');
+define('DATABASE', 'bookingapp');
 define('CHARSET', 'utf8');
 ?>
