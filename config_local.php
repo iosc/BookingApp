@@ -5,7 +5,7 @@ define('SITEURL', 'http://localhost/BookingApp');
 
 define('HOST', 'localhost');
 define('USER', 'root');
-define('PASSWORD', '123456');
+define('PASSWORD', '');
 define('DATABASE', 'bookingapp');
 define('CHARSET', 'utf8');
 ?>
