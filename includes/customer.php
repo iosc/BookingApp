@@ -1,5 +1,4 @@
 <?
-
 function add_customer()
 {
 ?>
