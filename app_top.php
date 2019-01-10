@@ -1,5 +1,5 @@
 <?
-ob_start('ob_gzhandler');
+//ob_start('ob_gzhandler');
 session_start();
 $srvipaddress = $_SERVER['HTTP_HOST'];
 //echo $srvipaddress;
