@@ -1,10 +1,5 @@
 <?
-//Elson
-<<<<<<< HEAD
-//E//boyd
-=======
-//lim
->>>>>>> 0ce4b645217bd1f863c41fd3fe2874bb16211399
+
 function add_customer()
 {
 ?>
