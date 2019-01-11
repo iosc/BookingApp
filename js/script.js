@@ -4,10 +4,17 @@ switch (document.location.hostname)
 		var rootFolder = '';
 		var doc_root = rootFolder;
 		break;
-	case 'localhost' :
-		var rootFolder = ''; 
+
+case 'localhost' :
+	var rootFolder = '';
+	var doc_root = rootFolder;
+	break;
+
+	case 'localhost:8081' :
+		var rootFolder = '';
 		var doc_root = rootFolder;
 		break;
+
 	default :  // set whatever you want
 		var rootFolder = '';
 		var doc_root = '';
@@ -30,7 +37,7 @@ function addRecord() {
     tel_no = tel_no.trim();
     var emailaddress = $("#emailaddress").val();
     emailaddress = emailaddress.trim();
- 
+
     if (first_name == "") {
         alert("First name field is required!");
     }
@@ -52,7 +59,7 @@ function addRecord() {
 		//console.log(doc_root + "request.php?a=create_customer");
 		//alert(document.location.hostname);
 		//alert(doc_root + "request.php?a=create_customer");
-		
+
         $.post(doc_root + "request.php?a=create_customer", {
             first_name: first_name,
             last_name: last_name,
@@ -61,15 +68,15 @@ function addRecord() {
         }, function (data, status) {
             // close the popup
             $("#add_new_record_modal").modal("hide");
-			
+
 			//debug php log
         	$("#log_debug_div").html(data);
-				
+
 			//console.log(doc_root + "request.php?a=create_customer " + first_name + last_name + tel_no);
 
             // read records again
             readRecords();
- 
+
             // clear fields from the popup
             $("#first_name").val("");
             $("#last_name").val("");
@@ -99,10 +106,10 @@ function GetCustomerDetails(customer_id) {
             customer_id: customer_id
         },
         function (data, status) {
- 
+
   			//debug php log
         	//$("#log_debug_div").html(data);
-			
+
 			// PARSE json data
             var customer = JSON.parse(data);
 			console.log(customer);
@@ -129,7 +136,7 @@ function UpdateCustomerDetails() {
     tel_no = tel_no.trim();
 	var emailaddress = $("#update_emailaddress").val();
     emailaddress = emailaddress.trim();
- 
+
     if (first_name == "") {
         alert("First name field is required!");
     }
@@ -148,7 +155,7 @@ function UpdateCustomerDetails() {
     else {
         // get hidden field value
         var customer_id = $("#hidden_customer_id").val();
- 
+
         // Update the details by requesting to the server using ajax
         $.post(doc_root + "request.php?a=update_customer", {
                 customer_id: customer_id,
@@ -160,9 +167,9 @@ function UpdateCustomerDetails() {
             function (data, status) {
 				//debug php log
 				$("#log_debug_div").html(data);
-				
+
 				console.log(data);
-				
+
                 // hide modal popup
                 $("#update_customer_modal").modal("hide");
                 // reload Customers by using readRecords();
@@ -205,10 +212,10 @@ function bookingAppointment(customer_id) {
             customer_id: customer_id
         },
         function (data, status) {
- 
+
   			//debug php log
         	//$("#log_debug_div").html(data);
-			
+
 			// PARSE json data
             var customer = JSON.parse(data);
 			console.log(customer);
@@ -226,13 +233,13 @@ function AddBookingAppointment() {
     var bookingAppointment_staff_id = $("#bookingAppointment_staff_id").val();
     var bookingAppointment_date = $("#bookingAppointment_date").val();
     var bookingAppointment_time = $("#bookingAppointment_time").val();
-  
+
         // Add record
 		//alert(customer_id + bookingAppointment_staff_id + bookingAppointment_date + bookingAppointment_time);
 		console.log(doc_root + "request.php?a=add_booking_appointment");
 		//alert(document.location.hostname);
 		//alert(doc_root + "request.php?a=add_booking_appointment");
-		
+
         $.post(doc_root + "request.php?a=add_booking_appointment", {
             customer_id: customer_id,
             bookingAppointment_staff_id: bookingAppointment_staff_id,
@@ -241,10 +248,10 @@ function AddBookingAppointment() {
 		}, function (data, status) {
 		// close the popup
 		$("#add_booking_appointment_modal").modal("hide");
-		
+
 		//debug php log
 		$("#log_debug_div").html(data);
-			
+
 		//console.log(doc_root + "request.php?a=create_customer " + first_name + last_name + tel_no);
 
 		// read records again
@@ -255,9 +262,9 @@ function AddBookingAppointment() {
 		//$("#bookingAppointment_staff_id").val("");
 		//$("#bookingAppointment_date").val("");
 		//$("#bookingAppointment_time").val("");
-		
+
 		//$("#log_debug_div").html('add_booking_appointment();');
-		
+
 	});
 }
 
@@ -274,7 +281,7 @@ function UpdateAppmt() {
     tel_no = tel_no.trim();
 	var emailaddress = $("#update_emailaddress").val();
     emailaddress = emailaddress.trim();
- 
+
     if (first_name == "") {
         alert("First name field is required!");
     }
@@ -293,7 +300,7 @@ function UpdateAppmt() {
     else {
         // get hidden field value
         var customer_id = $("#hidden_customer_id").val();
- 
+
         // Update the details by requesting to the server using ajax
         $.post(doc_root + "request.php?a=update_customer", {
                 customer_id: customer_id,
@@ -305,9 +312,9 @@ function UpdateAppmt() {
             function (data, status) {
 				//debug php log
 				$("#log_debug_div").html(data);
-				
+
 				console.log(data);
-				
+
                 // hide modal popup
                 $("#update_customer_modal").modal("hide");
                 // reload Customers by using readRecords();
@@ -340,4 +347,3 @@ $(document).ready(function () {
     // READ records on page load
     readRecords(); // calling function
 });
-
